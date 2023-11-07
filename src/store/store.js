@@ -4,8 +4,12 @@ import { reducer as todoReducer } from '../todo/todos/store/reducer';
 import { reducer as filterReducer } from '../todo/filter/store/reducer';
 
 const initStore = {
-    todos: [],
-    filter: 'ALL'
+  todos: {
+    list: []
+  },
+  filter: {
+    type: 'ALL'
+  }
 }
 
 /**

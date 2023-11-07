@@ -11,3 +11,5 @@ const TodoItem = ({onToggle, onRemove, completed, text}) => (
     <button className="remove" onClick={onRemove}>×</button>
   </li>
 )
+
+export default TodoItem

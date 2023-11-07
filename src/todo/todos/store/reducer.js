@@ -14,12 +14,7 @@ export function reducer (state, action) {
             isComplete: Status.Complete,
             id: increamentId++
         }
-        state = { ...state, todoList: [...state.todoList, item]}
+        state = { ...state, list: [...state.list, item]}
     }
     return {...state}
-    // if (type === ActionTypes.REMOVE_TODO) { 
-
-    //  }
-    // if (type === ActionTypes.TOGGLE_TODO) { }
-
  }

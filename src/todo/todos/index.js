@@ -6,7 +6,7 @@ export default () => {
     return (
     //   JSX中添加类名不使用class 因为class是关键字 应当使用className
     <div className="todos">
-      <AddTodo />
+        <AddTodo/>
       <TodoList />
     </div>
   );

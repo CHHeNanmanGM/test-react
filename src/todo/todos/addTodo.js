@@ -1,9 +1,13 @@
 import { Component } from "react"
+import { connect } from 'react-redux'
+import { addtodo } from './store/actions'
+
 
 class AddTodo extends Component {
-    constructor() { 
-        this.input = null
-    }
+  constructor() { 
+    super()
+    this.input = null
+  }
     /**
      * 当一个元素使用ref属性绑定一个函数时，在组件mount之后，就会
      * 检查ref绑定的值，如果绑定的值是一个函数时，那么将调用这个函数并将
@@ -13,29 +17,36 @@ class AddTodo extends Component {
      * 不一致的问题。
      * @param {*} node 
      */
-    refInput(node) {
-    this.input = node;
+    refInput = (node) =>{
+      console.log(node)
+      this.input = node;
     }
-    onSubmit(ev) {
+  
+    onSubmit = (ev)=> {
         ev.preventDefault();
         const input = this.input;
-        if (! input.value.trim()) {
+        if (!input.value.trim()) {
             return;
         }
         this.props.onAdd(input.value);
         input.value = '';
     }
     render() {
-  return (
-    <div className="add-todo">
-          <form onSubmit={this.onSubmit}>
-        <input className="new-todo" ref={this.refInput} />
-        <button className="add-btn" type="submit">
-          添加
-        </button>
-      </form>
-    </div>
-  )
-  }
+      return (
+        <div className="add-todo">
+              <form onSubmit={this.onSubmit}>
+            <input className="new-todo" ref={this.refInput} />
+            <button className="add-btn" type="submit">
+              添加
+            </button>
+          </form>
+        </div>
+      )
+    }
 }
-export default AddTodo
+
+const mapDispatchToProps = {
+  onAdd: addtodo
+}
+
+export default connect(null, mapDispatchToProps)(AddTodo)
