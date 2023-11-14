@@ -8,7 +8,7 @@ const initStore = {
     list: []
   },
   filter: {
-    type: 'ALL'
+    type: true
   }
 }
 

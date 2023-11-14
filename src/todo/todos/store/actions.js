@@ -6,16 +6,16 @@ export const addtodo = function (name) {
     }
 }
 
-export const removetodo = function (todoItem) { 
+export const removetodo = function (todoId) { 
     return {
         type: actions.REMOVE_TODO,
-        item: todoItem
+        id: todoId
     }
 }
 
-export const toggletodo = function (todoItem) { 
+export const toggletodo = function (todoId) { 
     return {
         type: actions.TOGGLE_TODO,
-        item: todoItem
+        id: todoId
     }
 }

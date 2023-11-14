@@ -1,10 +1,14 @@
-const Filter = () => {
+import { toggleType } from './store/actions'
+import { connect } from 'react-redux'
+
+const Filter = ({ toggleType }) => {
   return (
-    <p className="filters">
-      {/* <Link filter={FilterTypes.ALL}> {FilterTypes.ALL} </Link>
-      <Link filter={FilterTypes.COMPLETED}> {FilterTypes.COMPLETED} </Link>
-      <Link filter={FilterTypes.UNCOMPPLETED}> {FilterTypes.UNCOMPPLETED} </Link> */}
+    <p className="filters" onClick={toggleType}>
+      toggleType
     </p>
   );
 };
-export default Filter
+const mapDispatchToProps = {
+  toggleType
+}
+export default connect(null, mapDispatchToProps)(Filter)

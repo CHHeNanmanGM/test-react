@@ -1,24 +1,16 @@
 import * as ActionTypes from './actionTypes'
-const Status = {
-    Complete: true,
-    unComplete: false
-}
+
 // 自增主键
-let increamentId = 0
 
 export  function reducer (state, action) {
     const { type } = action
-    if (type === ActionTypes.ADD_TODO) {
-        const item = {
-            name: action.name,
-            isComplete: Status.Complete,
-            id: increamentId++
+    console.log(action, '123')
+    if (type === ActionTypes.toggleType) {
+        state = {
+            type: !state.type
+            // filter: { ...state.filter, type: !state.filter.type },
+            // todoList: state.todoList.filter(item => item.isComplete === state.filter.type)
         }
-        state = { ...state, todoList: [...state.todoList, item]}
      }
-    // if (type === ActionTypes.REMOVE_TODO) { 
-
-    //  }
-    // if (type === ActionTypes.TOGGLE_TODO) { }
     return {...state}
  }
